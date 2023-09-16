@@ -12,11 +12,11 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>Logout<% end %>
-
+      <% if current_user %>
+        <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>Logout<% end %>
+      <% end %>
       <%= render 'layouts/alert' %>
       <%= yield %>
-    </main>
+
   </body>
 </html>
